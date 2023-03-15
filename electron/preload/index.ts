@@ -30,41 +30,72 @@ const safeDOM = {
  * https://matejkustec.github.io/SpinThatShit
  */
 function useLoading() {
-  const className = 'loaders-css__square-spin'
   const styleContent = `
-@keyframes square-spin {
-  25% { transform: perspective(100px) rotateX(180deg) rotateY(0); }
-  50% { transform: perspective(100px) rotateX(180deg) rotateY(180deg); }
-  75% { transform: perspective(100px) rotateX(0) rotateY(180deg); }
-  100% { transform: perspective(100px) rotateX(0) rotateY(0); }
-}
-.${className} > div {
-  animation-fill-mode: both;
-  width: 50px;
-  height: 50px;
-  background: #fff;
-  animation: square-spin 3s 0s cubic-bezier(0.09, 0.57, 0.49, 0.9) infinite;
-}
-.app-loading-wrap {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgb(13,148,136);
-  z-index: 9;
-}
-    `
+  .app-loading-wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(13,148,136);
+    z-index: 9;
+  }
+  .sk-grid {
+    width: 40px;
+    height: 40px;
+    /* Cube positions
+    * 1 2 3
+    * 4 5 6
+    * 7 8 9
+    */
+  }
+  .sk-grid-cube {
+    width: 33.33%;
+    height: 33.33%;
+    background-color: #fff;
+    float: left;
+    animation: sk-grid 1.3s infinite ease-in-out;
+  }
+
+  .sk-grid-cube:nth-child(1), .sk-grid-cube:nth-child(5), .sk-grid-cube:nth-child(9) {
+    animation-delay: 0.2s;
+  }
+  .sk-grid-cube:nth-child(2), .sk-grid-cube:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+  .sk-grid-cube:nth-child(4), .sk-grid-cube:nth-child(8) {
+    animation-delay: 0.1s;
+  }
+  .sk-grid-cube:nth-child(3) { animation-delay: 0.4s; }
+  .sk-grid-cube:nth-child(7) { animation-delay: 0.0s; }
+
+  @keyframes sk-grid {
+    0%, 70%, 100% {
+      transform: scale3D(1, 1, 1);
+    } 35% {
+      transform: scale3D(0, 0, 1);
+    }
+  }
+`
   const oStyle = document.createElement('style')
   const oDiv = document.createElement('div')
 
   oStyle.id = 'app-loading-style'
   oStyle.innerHTML = styleContent
   oDiv.className = 'app-loading-wrap'
-  oDiv.innerHTML = `<div class="${className}"><div></div></div>`
+
+  const oGrid = document.createElement('div')
+  const oGridCube = document.createElement('div')
+
+  oGrid.className = 'sk-grid'
+  oGridCube.className = 'sk-grid-cube'
+  for (let i = 0; i < 9; i++)
+    oGrid.appendChild(oGridCube.cloneNode())
+
+  oDiv.appendChild(oGrid)
 
   return {
     appendLoading() {

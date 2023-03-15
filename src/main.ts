@@ -13,5 +13,5 @@ Object.values(
 ).forEach(i => i.install?.(app))
 
 app.mount('#app').$nextTick(() => {
-  // window.postMessage({ payload: 'removeLoading' }, '*')
+  window.postMessage({ payload: 'removeLoading' }, '*')
 })
