@@ -25,7 +25,7 @@ const go = () => {
       </a>
     </p>
     <p>
-      <em text-sm op75>Electron Vite Starter Template</em>
+      <em text-sm op75>Vitesse for Electron</em>
     </p>
 
     <div py-4 />
