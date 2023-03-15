@@ -1,0 +1,35 @@
+{
+  "appId": "YourAppID",
+  "asar": true,
+  "icon": "public/favicon.ico",
+  "directories": {
+    "output": "dist/${version}"
+  },
+  "files": [
+    "dist-electron",
+    "dist"
+  ],
+  "mac": {
+    "artifactName": "${productName}-${version}.${ext}",
+    "target": [
+      "dmg"
+    ]
+  },
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": [
+          "x64"
+        ]
+      }
+    ],
+    "artifactName": "${productName}-${version}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": false,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": false
+  }
+}
