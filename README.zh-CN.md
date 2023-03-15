@@ -10,6 +10,10 @@
 
 - 📦 [组件自动化加载](./src/components)
 
+- 🍍 [使用 Pinia 的状态管理](https://pinia.vuejs.org)
+
+- 📑 [布局系统](./src/layouts)
+
 - 🎨 [UnoCSS](https://github.com/unocss/unocss) - 高性能且极具灵活性的即时原子化 CSS 引擎
 
 - 😃 [各种图标集为你所用](https://github.com/antfu/unocss/tree/main/packages/preset-icons)

@@ -3,6 +3,7 @@ import { rmSync } from 'node:fs'
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
+import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
@@ -83,6 +84,9 @@ export default defineConfig(({ command }) => {
       // https://github.com/hannoeru/vite-plugin-pages
       Pages(),
 
+      // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
+      Layouts(),
+
       // https://github.com/antfu/unplugin-auto-import
       AutoImport({
         imports: [
@@ -91,7 +95,7 @@ export default defineConfig(({ command }) => {
           'vue-router',
           '@vueuse/core',
         ],
-        dts: true,
+        dts: 'types/auto-imports.d.ts',
         dirs: [
           './src/composables',
         ],
@@ -100,7 +104,7 @@ export default defineConfig(({ command }) => {
 
       // https://github.com/antfu/vite-plugin-components
       Components({
-        dts: true,
+        dts: 'types/components.d.ts',
       }),
 
       // https://github.com/antfu/unocss

@@ -54,7 +54,7 @@ function useLoading() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #282c34;
+  background: rgb(13,148,136);
   z-index: 9;
 }
     `

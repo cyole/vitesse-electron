@@ -16,6 +16,7 @@
     ]
   },
   "win": {
+    "artifactName": "${productName}-${version}.${ext}",
     "target": [
       {
         "target": "nsis",
@@ -23,8 +24,7 @@
           "x64"
         ]
       }
-    ],
-    "artifactName": "${productName}-${version}.${ext}"
+    ]
   },
   "nsis": {
     "oneClick": false,
