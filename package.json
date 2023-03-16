@@ -7,8 +7,8 @@
   "author": "cyole <hi@cyoo.cn>",
   "main": "dist-electron/main/index.js",
   "scripts": {
-    "build": "vue-tsc --noEmit && electron-builder",
     "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build && electron-builder",
     "lint": "eslint .",
     "typecheck": "vue-tsc --noEmit",
     "preview": "vite preview",

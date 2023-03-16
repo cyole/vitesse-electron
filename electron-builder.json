@@ -3,7 +3,7 @@
   "asar": true,
   "icon": "public/favicon.ico",
   "directories": {
-    "output": "dist/${version}"
+    "output": "release/${version}"
   },
   "files": [
     "dist-electron",
