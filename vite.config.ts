@@ -7,7 +7,8 @@ import Layouts from 'vite-plugin-vue-layouts'
 import Components from 'unplugin-vue-components/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Unocss from 'unocss/vite'
-import VueMacros from 'unplugin-vue-macros/vite'
+
+// eslint-disable-next-line import/default
 import Electron from 'vite-plugin-electron'
 import Renderer from 'vite-plugin-electron-renderer'
 import packageJson from './package.json'
@@ -26,14 +27,11 @@ export default defineConfig(({ command }) => {
       },
     },
     plugins: [
-      VueMacros({
-        plugins: {
-          vue: Vue({
-            reactivityTransform: true,
-          }),
+      Vue({
+        script: {
+          defineModel: true,
         },
       }),
-
       Electron([
         {
           // Main-Process entry file of the Electron App.
@@ -78,7 +76,8 @@ export default defineConfig(({ command }) => {
 
       Renderer({
         // Enables use of Node.js API in the Renderer-process
-        nodeIntegration: true,
+        // nodeIntegration: true,
+
       }),
 
       // https://github.com/hannoeru/vite-plugin-pages

@@ -3,12 +3,12 @@ defineOptions({
   name: 'IndexPage',
 })
 
-const name = $ref('')
+const name = ref('')
 
 const router = useRouter()
-const go = () => {
+function go() {
   if (name)
-    router.push(`/hi/${encodeURIComponent(name)}`)
+    router.push(`/hi/${encodeURIComponent(name.value)}`)
 }
 </script>
 
