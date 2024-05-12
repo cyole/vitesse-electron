@@ -1,0 +1,22 @@
+:root,
+:root::selection {
+  --c-primary: #18a058;
+  --c-primary-active: #36ad6a;
+
+  /* border */
+  --c-border: #eee;
+  --rgb-bg-base: 250, 250, 250;
+
+  /* background */
+  --c-bg-base: rgb(var(--rgb-bg-base));
+  --c-bg-active: #f2f2f2;
+}
+
+.dark {
+  --c-primary: #63e2b7;
+  --c-primary-active: #7fe7c4;
+
+  --c-border: #222;
+  --rgb-bg-base: 18 18 18;
+  --c-bg-active: #191919;
+}

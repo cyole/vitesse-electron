@@ -1,0 +1,66 @@
+{
+  "name": "vitesse-electron",
+  "type": "module",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@9.1.0",
+  "description": "Vitesse for Electron",
+  "author": "cyole <hi@cyoo.cn>",
+  "main": "dist-electron/main/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "nr typecheck && vite build && electron-builder",
+    "build:web": "nr typecheck && vite build",
+    "lint": "eslint .",
+    "typecheck": "vue-tsc --noEmit",
+    "preview": "vite preview",
+    "up": "taze major -I",
+    "postinstall": "npx simple-git-hooks"
+  },
+  "dependencies": {
+    "@vueuse/core": "^10.9.0",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.27",
+    "vue-router": "^4.3.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.17.0",
+    "@antfu/ni": "^0.21.12",
+    "@iconify-json/carbon": "^1.1.32",
+    "@iconify-json/ion": "^1.1.18",
+    "@types/node": "^20.12.11",
+    "@types/nprogress": "^0.2.3",
+    "@unocss/eslint-config": "^0.60.1",
+    "@unocss/eslint-plugin": "^0.60.1",
+    "@unocss/reset": "^0.60.1",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vue-macros/volar": "^0.19.0",
+    "electron": "^30.0.3",
+    "electron-builder": "^24.13.3",
+    "eslint": "^9.2.0",
+    "eslint-plugin-format": "^0.1.1",
+    "lint-staged": "^15.2.2",
+    "pnpm": "^9.1.0",
+    "simple-git-hooks": "^2.11.1",
+    "taze": "^0.13.8",
+    "typescript": "^5.4.5",
+    "unocss": "^0.60.1",
+    "unplugin-auto-import": "^0.17.6",
+    "unplugin-vue-components": "^0.27.0",
+    "unplugin-vue-macros": "^2.9.2",
+    "unplugin-vue-router": "^0.8.6",
+    "vite": "^5.2.11",
+    "vite-plugin-electron": "^0.28.7",
+    "vite-plugin-electron-renderer": "^0.14.5",
+    "vite-plugin-vue-layouts": "^0.11.0",
+    "vitest": "^1.6.0",
+    "vue-tsc": "^2.0.17"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
